@@ -1,0 +1,18 @@
+{
+  "name": "CITRONEX hydra S.R.Z.B. - Siechnice",
+  "short_name": "CITRONEX hydra",
+  "description": "Szkolenie CITRONEX hydra S.R.Z.B. dla Siechnic",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f5",
+  "theme_color": "#166534",
+  "icons": [
+    {
+      "src": "assets/logo-citronex.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
