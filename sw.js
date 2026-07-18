@@ -1,5 +1,5 @@
 const CACHE_PREFIX = "citronex-siechnice-modular-";
-const CACHE_NAME = CACHE_PREFIX + "20260718-digital-presenter1";
+const CACHE_NAME = CACHE_PREFIX + "20260718-fixed-voice1";
 
 const CORE_ASSETS = [
   "./",
@@ -18,11 +18,20 @@ const CORE_ASSETS = [
   "./zakazy.html",
   "./test.html",
   "./manifest.webmanifest",
-  "./assets/css/training.css?v=20260718-digital-presenter1",
-  "./assets/js/training-data.js?v=20260718-digital-presenter1",
-  "./assets/js/training-app.js?v=20260718-digital-presenter1",
+  "./assets/css/training.css?v=20260718-fixed-voice1",
+  "./assets/js/training-data.js?v=20260718-fixed-voice1",
+  "./assets/js/training-app.js?v=20260718-fixed-voice1",
   "./assets/logo-citronex.svg",
-  "./assets/brand/digital-presenter.png"
+  "./assets/brand/digital-presenter.png",
+  "./assets/audio/intro-pl.mp3?v=20260718-fixed-voice1",
+  "./assets/audio/intro-en.mp3?v=20260718-fixed-voice1",
+  "./assets/audio/intro-ua.mp3?v=20260718-fixed-voice1",
+  "./assets/audio/intro-ru.mp3?v=20260718-fixed-voice1",
+  "./assets/audio/intro-az.mp3?v=20260718-fixed-voice1",
+  "./assets/audio/intro-es.mp3?v=20260718-fixed-voice1",
+  "./assets/audio/intro-fil.mp3?v=20260718-fixed-voice1",
+  "./assets/audio/intro-id.mp3?v=20260718-fixed-voice1",
+  "./assets/audio/intro-ne.mp3?v=20260718-fixed-voice1"
 ];
 
 self.addEventListener("install", (event) => {

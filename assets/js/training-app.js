@@ -2528,7 +2528,8 @@
     const script = card.querySelector("[data-presenter-script]");
     const labels = welcomeGuideUi[lang] || welcomeGuideUi.pl;
     const sentences = guideText(lang, getLocationName());
-    let guide = null;
+    const recording = new Audio(`assets/audio/intro-${lang}.mp3?v=20260718-fixed-voice1`);
+    recording.preload = "metadata";
 
     const finish = () => {
       card.classList.remove("is-speaking");
@@ -2539,29 +2540,35 @@
     };
 
     play.addEventListener("click", () => {
-      if (guide) guide.cancel();
+      recording.pause();
+      recording.currentTime = 0;
       play.disabled = true;
       play.textContent = labels.speaking;
       stop.hidden = false;
       card.classList.add("is-speaking");
-      guide = createGuideSpeaker(sentences, lang, (index, sentence) => {
-        script.textContent = sentence;
-        script.dataset.step = String(index + 1);
-      }, finish);
-      if (!guide.start()) {
+      script.textContent = sentences.join(" ");
+      recording.play().catch(() => {
         script.textContent = labels.unavailable;
         finish();
-      }
+      });
     });
 
     stop.addEventListener("click", () => {
-      if (guide) guide.cancel();
-      guide = null;
+      recording.pause();
+      recording.currentTime = 0;
       finish();
     });
 
+    recording.addEventListener("ended", finish);
+    recording.addEventListener("error", () => {
+      script.textContent = labels.unavailable;
+      card.classList.remove("is-speaking");
+      play.disabled = false;
+      stop.hidden = true;
+    });
+
     window.addEventListener("pagehide", () => {
-      if (guide) guide.cancel();
+      recording.pause();
     }, { once: true });
   }
   function showLocationWelcome() {
